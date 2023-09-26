@@ -1,6 +1,6 @@
 FROM node:16.14.0 AS build
 
-ARG PORT=6001
+ARG PORT=5173
 
 WORKDIR /app
 
