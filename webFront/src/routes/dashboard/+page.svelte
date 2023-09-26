@@ -49,6 +49,8 @@
 
     #userboard-content{
         flex-grow: 1;
+        overflow: scroll;
+        background-color: #e9e9e2;
     }
 
 
@@ -61,11 +63,12 @@
     import Roundbutton from '../roundbutton.svelte';
     import Application from './application.svelte';
     import Setting from './setting.svelte';
+    import Repository from './repository.svelte';
     import Help from './help.svelte';
 
-    let sidebaropen = true;
+    let sidebaropen = false;
     let userboard_header_text = 'application';
-    let userboard_header_text_arr = ['application', 'setting', 'help']
+    let userboard_header_text_arr = ['application', 'repository', 'setting', 'help']
     let userboard_number = 0;
 
     /**
@@ -86,8 +89,9 @@
     <div id="dashboard-sidebar" class="center-vertical center {sidebaropen ? 'sidebar-open' : 'sidebar-close'} ">
         <Roundbutton src="/sidebar.png" bind:toggle = {sidebaropen} toggle_function = {sidebar_button_toggle}/>
         <Roundbutton src="/application.png" toggle_function = {userboard} number = {0}/>
-        <Roundbutton src="/setting.png" toggle_function = {userboard} number = {1}/>
-        <Roundbutton src="/help.png" toggle_function = {userboard} number = {2}/>
+        <Roundbutton src="/repository.png" toggle_function = {userboard} number = {1}/>
+        <Roundbutton src="/setting.png" toggle_function = {userboard} number = {2}/>
+        <Roundbutton src="/help.png" toggle_function = {userboard} number = {3}/>
     </div>
     <div id="userboard-content-wrapper" class="center-vertical">
         <div id="userboard-header">
@@ -98,8 +102,10 @@
             {#if userboard_number == 0}
                 <Application />
             {:else if userboard_number == 1}
-                <Setting />
+                <Repository />
             {:else if userboard_number == 2}
+                <Setting />
+            {:else if userboard_number == 3}
                 <Help />
             {:else}
                 <div>

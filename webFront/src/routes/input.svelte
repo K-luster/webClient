@@ -1,4 +1,6 @@
 <script>
+    import Button from "./button.svelte";
+
 
     export let text = 'DEFAULT TEXT';
     export let type = "text"
@@ -7,6 +9,12 @@
     export let placeholder = "";
 
     let showPassword = false;
+    export let email_auth_failed = false
+    export let isDisabled = false
+    export let _min = 0
+    export let _max = 0
+    export let maxlength = 0
+    export let pattern = ""
 
     function togglePasswordVisibility() {
         let passwordInput = /** @type {HTMLInputElement} */ (document.getElementById("inputpassword"))
@@ -18,6 +26,8 @@
             showPassword = false;
         }
     }
+
+    export let onclickFunction = togglePasswordVisibility;
     
     function handleFocus() {
       isFocused = true;
@@ -27,6 +37,7 @@
       isFocused = false;
     }
 
+    
   </script>
   
   <style>
@@ -51,7 +62,7 @@
       transform-origin: left bottom;
       pointer-events: none;
       transform: translateY(var(--label-translateY, 0)) scale(var(--label-scale, 1));
-      color: #757979;
+      color: #1f3546;
     }
   
     .input-field {
@@ -71,8 +82,8 @@
       color: #B96161
     }
     .input-field::placeholder{
-        color: #e7dae3;
-        font-size : 3px;
+        color: #af96a7;
+        font-size : 13px;
     }
 
     .password-toggle-button{
@@ -83,6 +94,12 @@
         background-color: transparent; /* 버튼 배경색을 투명하게 설정 */
         border: none; /* 테두리 제거 (선택 사항) */
     }
+
+    .email-auth{
+      position: absolute;
+      top: 0px;
+      right: 0px;
+    }
   </style>
   
 <div class="inputWrapper center">
@@ -91,14 +108,26 @@
         <div>
             <input id="inputpassword" type="password" bind:value={inputValue} class="input-field" on:focus={handleFocus} on:blur={handleBlur} placeholder={placeholder}/>
             <label class="label" class:active={isFocused || inputValue}>{text}</label>
-            <button class="password-toggle-button" on:click={togglePasswordVisibility}>
+            <button class="password-toggle-button" on:click={onclickFunction}>
                 <span class="password-toggle-icon {showPassword ? 'show-password' : ''}">
                 {showPassword ? '👁️' : '🙈'}
                 </span>
             </button>
         </div>
-    {:else if type ==='email'}
-        <input id="emailInput" type="email" bind:value={inputValue} class="input-field" on:focus={handleFocus} on:blur={handleBlur} placeholder="example@konkuk.ac.kr" pattern=".+@konkuk\.ac\.kr" required/>
+    {:else if type ==='email_register'}
+        <input type="email" bind:value={inputValue} class="input-field" on:focus={handleFocus} on:blur={handleBlur} placeholder="example@konkuk.ac.kr" pattern=".+@konkuk\.ac\.kr" required/>
+        <label class="label" class:active={isFocused || inputValue}>{text}</label>
+        <div class="email-auth">
+          <Button text="인증" clickHandler={onclickFunction} bind:isDisabled = {isDisabled}/>
+        </div>
+    {:else if type ==='email_auth'}
+        <input type="email" bind:value={inputValue} class="input-field" on:focus={handleFocus} on:blur={handleBlur} placeholder="example@konkuk.ac.kr" pattern=".+@konkuk\.ac\.kr" required/>
+        <label class="label" class:active={isFocused || inputValue}>{text}</label>
+        <div class="email-auth">
+          <Button text="확인" clickHandler={onclickFunction} bind:isDisabled = {isDisabled} bind:isShaking={email_auth_failed}/>
+        </div>
+    {:else if type ==='number'}
+        <input type="number" bind:value={inputValue} class="input-field" on:focus={handleFocus} on:blur={handleBlur} pattern="{pattern}" maxlength="{maxlength}" placeholder="{placeholder}" min="{_min}" max="{_max}" required/>
         <label class="label" class:active={isFocused || inputValue}>{text}</label>
     {:else}
         <input type="text" bind:value={inputValue} class="input-field" on:focus={handleFocus} on:blur={handleBlur} placeholder={placeholder}/>

@@ -33,11 +33,13 @@
     export let application_name = "APPLICATION EXAMPLE"
     export let application_cpu = "0m"
     export let application_memory = "0Mi"
+
+
 </script>
 
 <div id="user_app_detail">
-    <div id="app_detail_button">
-        <Button text = {application_name} clickHandler = {()=>{}}/>
+    <div id="app_detail_button" class="center center-vertical">
+        <Button width="auto" text = {application_name} clickHandler = {()=>{}}/>
     </div>
 
     <div id="app_detail_cpu" class="center">
