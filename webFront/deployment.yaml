@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kuploy-web-deployment
+spec:
+  selector:
+    matchLabels:
+      app: kuploy-web
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: kuploy-web
+    spec:
+      containers:
+        - name: core
+          image: kuploy/kuploy-web
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi
+            limits:
+              cpu: 500m
+              memory : 500Mi
