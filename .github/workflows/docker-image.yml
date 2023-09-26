@@ -1,0 +1,22 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: |
+        docker build . --file Dockerfile --tag kuploy-web:$(date +%s)
+        docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+        docker tag kuploy-web hoeeeeeh/kuploy-web:latest
+        docker push hoeeeeeh/kuploy-web:latest
