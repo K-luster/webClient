@@ -1,6 +1,6 @@
 FROM node:16.14.0 AS build
 
-ARG PORT=5173
+ARG PORT=3000
 
 WORKDIR /app
 
@@ -8,8 +8,12 @@ COPY . ./
 
 RUN npm install
 
+RUN npm i -D @sveltejs/adapter-node
+
 RUN npm run build
+
+RUN npm ci --omit dev
 
 EXPOSE ${PORT}
 
-CMD HOST=0.0.0.0 PORT=${PORT} npm run dev
+CMD node build
