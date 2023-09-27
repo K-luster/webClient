@@ -12,7 +12,7 @@ spec:
         app: kuploy-web
     spec:
       containers:
-        - name: core
+        - name: kuploy-web-container
           image: kuploy/kuploy-web
           imagePullPolicy: Always
           ports:
