@@ -74,7 +74,7 @@
             await servercomm(auto_ci_dir, ci_item)
             console.log(resultData, resultMessage)
         }else{
-            cd_item.argoApiRequestDto.spec.source.repoURL = cd_spec.repo_name,
+            cd_item.argoApiRequestDto.spec.source.repoURL = cd_spec.repo_url,
             cd_item.localRepositoryPath = cd_spec.local_path,
             cd_item.serviceName = cd_spec.service_name,
             cd_item.argoApiRequestDto.metadata.name = cd_spec.application_name,
