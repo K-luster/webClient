@@ -6,6 +6,7 @@
     export let toggle_function;
     export let src = "";
     export let number = 0;
+    export let binding = false;
 </script>
 
 <style>

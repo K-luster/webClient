@@ -1,5 +1,5 @@
 <style>
-    #user_repo_detail{
+    #user-repo-detail{
         padding: 1%;
         margin: 1%;
         border: 1px solid #ddd;
@@ -14,12 +14,12 @@
         overflow: hidden;
     }
 
-    #repo_detail_button{
+    #repo-detail-button{
         flex: 3;
         width: auto;
     }
 
-    #repo_detail_desc{
+    #repo-detail-desc{
         flex-grow: 1;
     }
     .flex{
@@ -29,7 +29,7 @@
         width: auto;
     }
 
-    .repo_detail_p{
+    .repo-detail-p{
         flex-grow: 1; 
         font-size: 0.3rem;
         color: #a5a5a5
@@ -45,16 +45,16 @@
     export let repo_desc = "0m"
 </script>
 
-<div id="user_repo_detail" class="center-vertical">
-    <div id="repo_detail_button" class="">
+<div id="user-repo-detail" class="center-vertical">
+    <div id="repo-detail-button" class="">
         <div class="repobutton center-vertical">
             <Popup repo_name = {repo_name} popup_content = {CicdPopup} />
         </div>
     </div>
 
-    <div id="repo_detail_desc" class="">
+    <div id="repo-detail-desc" class="">
         <div class="size-parent flex">
-            <p class="repo_detail_p">{repo_desc}</p>
+            <p class="repo-detail-p">{repo_desc}</p>
         </div>
     </div>
 </div>

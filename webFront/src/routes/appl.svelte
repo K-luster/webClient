@@ -1,5 +1,5 @@
 <style>
-    #user_app_detail{
+    #user-app-detail{
         padding: 1%;
         border: 1px solid #ddd;
         border-radius: 5px;
@@ -10,17 +10,14 @@
         box-sizing: border-box;
     }
 
-    #app_detail_button{
-        flex: 4;
-    }
-
-    #app_detail_cpu{
-        flex: 2;
-    }
-
-    #app_detail_memory{
+    #app-detail-button{
         flex: 3;
     }
+
+    #app-repo-url{
+        flex: 5;
+    }
+
 
     .flex{
         display: flex;
@@ -31,28 +28,24 @@
     import Button from "./button.svelte";
 
     export let application_name = "APPLICATION EXAMPLE"
-    export let application_cpu = "0m"
-    export let application_memory = "0Mi"
+    export let application_repo = "github"
+    /**
+    @param {string | boolean} binding
+    */
+    export let binding = false
 
-
+    export let clickHandler = ()=>{}
 </script>
 
-<div id="user_app_detail">
-    <div id="app_detail_button" class="center center-vertical">
-        <Button width="auto" text = {application_name} clickHandler = {()=>{}}/>
+<div id="user-app-detail">
+    <div id="app-detail-button" class="center center-vertical">
+        <Button width="auto" text = {application_name} clickHandler = {clickHandler}/>
     </div>
 
-    <div id="app_detail_cpu" class="center">
+    <div id="app-repo-url" class="center">
         <div class="size-parent flex center">
-            <img src="/cpu.png" alt="cpu icon" class="img-fit">
-            <p style="flex-grow: 1; text-align: center;">{application_cpu}</p>
-        </div>
-    </div>
-
-    <div id="app_detail_memory" class="center">
-        <div class="size-parent flex center">
-            <img src="/memory.png" alt="cpu icon" class="img-fit">
-            <p style="flex-grow: 1; text-align: center;">{application_memory}</p>
+            <img src="/github-logo.png" alt="cpu icon" class="img-fit">
+            <p style="flex-grow: 1; padding-left : 10px;">{application_repo}</p>
         </div>
     </div>
 </div>

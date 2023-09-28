@@ -1,16 +1,16 @@
 <style>
-    #userboard_repository{
+    #userboard-repository{
         width: 100%;
         height: 100%;
         display: flex;
     }
 
-    #repository_button{
+    #repository-button{
         width: 100%;
         height: 10%;
     }
 
-    #repository_content{
+    #repository-content{
         width: 100%;
         height: 90%;
     }
@@ -65,12 +65,12 @@
 
 </script>
 
-<div id="userboard_repository" class="center-vertical">
-    <!-- <div id="repository_button">
+<div id="userboard-repository" class="center-vertical">
+    <!-- <div id="repository-button">
         <Roundbutton src="/plus.png" toggle_function = {userboard} number = {0}/>
     </div> -->
 
-    <div id="repository_content">
+    <div id="repository-content">
         {#each repository_list as item (item)} 
             <Repo repo_name={item.name} repo_desc={item.description} />
         {/each}
