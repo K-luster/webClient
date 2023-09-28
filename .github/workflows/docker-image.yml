@@ -20,7 +20,14 @@ jobs:
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         TAG : $(date +%s)
       run: |
-        docker build ./webFront --file webFront/Dockerfile --tag kuploy-web
+        # docker build ./webFront --file webFront/Dockerfile --tag kuploy-web
         docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-        docker tag kuploy-web kuploy/kuploy-web
-        docker push kuploy/kuploy-web
+        # docker tag kuploy-web kuploy/kuploy-web
+        # docker push kuploy/kuploy-web
+
+        IMAGE_NAME="kuploy/kuploy-web"
+        IMAGE_TAG="${{ github.sha }}"
+        
+        echo "Building Docker image: $IMAGE_NAME:$IMAGE_TAG"
+        docker buildx create --use
+        docker buildx build -t "$IMAGE_NAME:$IMAGE_TAG" --push ./webFront
