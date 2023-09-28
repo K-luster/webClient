@@ -5,7 +5,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: kuploy-web
+      app: kuploy-web-deployment
   template:
     metadata:
       labels:
