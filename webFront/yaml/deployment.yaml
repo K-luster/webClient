@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kuploy-web-deployment
+  name: kuploy-web
 spec:
   selector:
     matchLabels:
@@ -12,7 +12,7 @@ spec:
         app: kuploy-web
     spec:
       containers:
-        - name: kuploy-web-container
+        - name: kuploy-web
           image: kuploy/kuploy-web
           imagePullPolicy: Always
           ports:
@@ -23,5 +23,5 @@ spec:
               cpu: 100m
               memory: 100Mi
             limits:
-              cpu: 500m
-              memory : 500Mi
+              cpu: 300m
+              memory : 300Mi
