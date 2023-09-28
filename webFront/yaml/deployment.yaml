@@ -5,14 +5,14 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: kuploy-web-deployment
+      app: kuploy-web
   template:
     metadata:
       labels:
         app: kuploy-web
     spec:
       containers:
-        - name: kuploy-web-deploy
+        - name: kuploy-web
           image: kuploy/kuploy-web
           imagePullPolicy: Always
           ports:
