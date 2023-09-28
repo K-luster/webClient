@@ -2,6 +2,7 @@ import { writable } from "svelte/store";
 
 
 export const JWTToken = writable("");
+export const github_username = writable("username");
 export const signinbool = writable(true);
 
 export const server = writable("http://54.180.150.131/")

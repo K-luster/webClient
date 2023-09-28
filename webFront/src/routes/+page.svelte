@@ -20,6 +20,7 @@
         height: 100%;
         float: left;
         background: linear-gradient(to bottom, #dbb5ac, #c0e4f9); /* 그라데이션 색상 정의 */
+        z-index: -1;
     }
 
     #rightsideWrapper{

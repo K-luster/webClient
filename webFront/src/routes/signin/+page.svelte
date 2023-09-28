@@ -7,7 +7,7 @@
 
     // @ts-ignore
     // @ts-ignore
-    import { JWTToken, signinbool, signintoggle, signuptoggle } from '../../store';
+    import { JWTToken, github_username, signinbool, signintoggle, signuptoggle } from '../../store';
 
     let userid = '';
     let password = '';
@@ -20,6 +20,10 @@
      * @type {string | null}
      */
     let resultToken = null
+    /**
+     * @type {string | null}
+     */
+    let resultUsername = null
 
     let server = "http://54.180.150.131/"
 
@@ -43,6 +47,7 @@
 
         console.log(resultData, resultMessage)
         resultToken = res_json.data.accessToken
+        resultUsername = res_json.data.githubUsername
     }
 
     async function login(){
@@ -53,6 +58,7 @@
 
         if (resultData == "SUCCESS"){
             JWTToken.set(/** @type {string} */(resultToken))
+            github_username.set(/** @type {string} */(resultUsername))
             // @ts-ignore
             goto('/dashboard', true)
         }
