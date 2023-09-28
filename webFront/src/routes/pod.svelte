@@ -53,7 +53,8 @@
                 cpu: "",
                 memory: "",
             }
-        ]
+        ],
+        name: ''
 
     }]
 
@@ -94,7 +95,7 @@
 <div id="user-pod-detail-wrapper">
     {#each application as app}
         {#each app.container as container}
-            {#if (container.name.includes(app_name))}
+            {#if (app.name.includes(app_name))}
                 <div id="user-pod-detail">
                     <div id="pod-detail-button" class="center center-vertical">
                         <Button width="auto" text = {container.name} clickHandler = {()=>{}}/>
