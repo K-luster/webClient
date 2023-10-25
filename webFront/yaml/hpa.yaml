@@ -4,7 +4,7 @@ metadata:
   name: kuploy-web-hpa
 spec:
   minReplicas: 1  # 최소 replicas 개수
-  maxReplicas: 3  # 최대 replicas 개수
+  maxReplicas: 2  # 최대 replicas 개수
   metrics:
   - resource:
       name: cpu  # HPA를 구성할 리소스(CPU, MEM 등)
