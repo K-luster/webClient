@@ -1,15 +1,15 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kuploy-web
+  name: kuploy-web-client
 spec:
   selector:
     matchLabels:
-      app: kuploy-web
+      app: kuploy-web-client
   template:
     metadata:
       labels:
-        app: kuploy-web
+        app: kuploy-web-client
     spec:
       containers:
         - name: kuploy-web
