@@ -33,7 +33,7 @@
     }
     let ci_spec = {
         repo_name : args[2],
-        local_path : "",
+        local_path : "/app/" + args[2],
         branch_name : ""
     }
 
@@ -98,9 +98,9 @@
 
             console.log(ci_item)
             if(isCIComposeChecked){
-                await servercomm(auto_ci_dir, ci_item)
-            }else{
                 await servercomm(auto_ci_compose_dir, ci_item)
+            }else{
+                await servercomm(auto_ci_dir, ci_item)
             }
             isLoading = false
             console.log(resultData, resultMessage)
@@ -115,9 +115,9 @@
             console.log(cd_item)
 
             if(isCDComposeChecked){
-                await servercomm(auto_cd_dir, cd_item)
-            }else{
                 await servercomm(auto_cd_compose_dir, cd_item)
+            }else{
+                await servercomm(auto_cd_dir, cd_item)
             }
             isLoading = false
             console.log(resultData, resultMessage)

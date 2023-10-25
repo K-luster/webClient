@@ -95,6 +95,56 @@
             ]
         },
     }
+
+/*
+"resources": [
+      {
+        "version": "v1",
+        "kind": "Service",
+        "namespace": "hoeeeeeh",
+        "name": "kuploy-web-service",
+        "status": "Synced",
+        "health": {
+          "status": "Healthy"
+        }
+      },
+      {
+        "group": "apps",
+        "version": "v1",
+        "kind": "Deployment",
+        "namespace": "hoeeeeeh",
+        "name": "kuploy-web-client",
+        "status": "Synced",
+        "health": {
+          "status": "Healthy"
+        }
+      },
+      {
+        "group": "autoscaling",
+        "version": "v2beta1",
+        "kind": "HorizontalPodAutoscaler",
+        "namespace": "hoeeeeeh",
+        "name": "kuploy-web-hpa",
+        "status": "Synced",
+        "health": {
+          "status": "Healthy",
+          "message": "recommended size matches current size"
+        }
+      }
+    ],
+*/
+
+    // /**
+    //  * @type {any[]}
+    //  */
+    // let application_resources = []
+    // function get_pod_name(){
+    //   application_resources.forEach(function(item) {
+    //     if(item.kind == "Deployment" || item.kind == "Pod" || item.kind == "StatefulSet")
+    //   });
+    // }
+    
+
     let appl_name_selected = ''
     let pod_visible = false
     // @ts-ignore
@@ -127,6 +177,9 @@
         // pod_list 에 일부러 변화를 줌.
         // @ts-ignore
         pod_list["getting_started"] = true
+
+        console.log("A")
+        console.log(pod_list)
     })
 
     function toggle_pod_visible(){
