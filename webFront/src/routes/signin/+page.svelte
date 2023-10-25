@@ -7,7 +7,7 @@
 
     // @ts-ignore
     // @ts-ignore
-    import { JWTToken, github_username, signinbool, signintoggle, signuptoggle } from '../../store';
+    import { JWTToken, checkJwtCookie, github_username, server, signintoggle, signuptoggle } from '../../store';
 
     let userid = '';
     let password = '';
@@ -25,12 +25,11 @@
      */
     let resultUsername = null
 
-    let server = "http://54.180.150.131/"
-
     // @ts-ignore
     // @ts-ignore
     async function servercomm(dir, jsonBody, okfunction=()=>{}, cancelfunction=()=>{}, errorfunction=()=>{}){
-        const res = await fetch(server + dir, {
+        checkJwtCookie()
+        const res = await fetch($server + dir, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -56,8 +55,11 @@
             password : password
         })
 
+        console.log(resultData)
+
         if (resultData == "SUCCESS"){
             JWTToken.set(/** @type {string} */(resultToken))
+            document.cookie = `jwt=${$JWTToken}; path=/;`
             github_username.set(/** @type {string} */(resultUsername))
             // @ts-ignore
             goto('/dashboard', true)

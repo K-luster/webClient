@@ -4,7 +4,7 @@
     // @ts-ignore
     // @ts-ignore
     // @ts-ignore
-    import { server, signintoggle } from '../../store';
+    import { checkJwtCookie, server, signintoggle } from '../../store';
 
     // @ts-ignore
     let password = ""
@@ -33,6 +33,7 @@
 
 // @ts-ignore
 async function servercomm(dir, jsonBody, okfunction=()=>{}, cancelfunction=()=>{}, errorfunction=()=>{}){
+    checkJwtCookie()
     const res = await fetch($server + dir, {
         method: 'POST',
         headers: {

@@ -77,13 +77,11 @@
 
 <script>
     import App from "../appl.svelte";
-    import { server, JWTToken, github_username } from "../../store";
+    import { server, JWTToken, github_username, checkJwtCookie } from "../../store";
     import { onMount } from "svelte";
     import { slide } from "svelte/transition";
     import Roundbutton from "../roundbutton.svelte";
     import Pod from "../pod.svelte";
-
-    console.log($server, $JWTToken, $github_username)
 
 
     // @ts-ignore
@@ -102,6 +100,7 @@
     // @ts-ignore
     // @ts-ignore
     async function servercomm(dir, param, key,  okfunction=()=>{}, cancelfunction=()=>{}, errorfunction=()=>{}){
+        checkJwtCookie()
         try {
             const res = await fetch($server + dir, {
             method: 'GET',
@@ -123,19 +122,14 @@
     }
     onMount(async () => {
         // @ts-ignores
-        await servercomm("api/pod_detail", pod_list, "detail")
+        // await servercomm("api/pod_detail", pod_list, "detail")
         await servercomm("argo/get-all-applications", pod_list, "appl")
-        console.log(pod_list)
-        
-        console.log(pod_list.appl.data)
-
         // pod_list 에 일부러 변화를 줌.
         // @ts-ignore
         pod_list["getting_started"] = true
     })
 
     function toggle_pod_visible(){
-        console.log("A")
         pod_visible = !pod_visible
     }
 </script>

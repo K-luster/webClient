@@ -30,9 +30,10 @@
     <div class="popup center-vertical">
       <div id="popup-content-wrapper">
         <svelte:component this={popup_content} {...{
-          closePopup: closePopup,
-          isPopupVisible: isPopupVisible,
-          repoName : repo_name,
+          // closePopup: closePopup,
+          // isPopupVisible: isPopupVisible,
+          // repoName : repo_name,
+          args: [closePopup, isPopupVisible, repo_name]
         }}/>
       </div>
     </div>

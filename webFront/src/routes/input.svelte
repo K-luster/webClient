@@ -53,6 +53,14 @@
       padding : 10px;
       box-sizing: border-box;
     }
+
+    .float-left{
+      float: left;
+    }
+
+    .float-right{
+      float: right;
+    }
   
     .label {
       position:absolute;
@@ -79,11 +87,11 @@
     .input-field:not(:placeholder-shown) + .label {
       --label-translateY: -10px;
       --label-scale: 0.8;
-      color: #B96161
+      color: #c89797
     }
     .input-field::placeholder{
-        color: #af96a7;
-        font-size : 13px;
+        color: #d4c9c9;
+        font-size : 11px;
     }
 
     .password-toggle-button{
@@ -129,6 +137,9 @@
     {:else if type ==='number'}
         <input type="number" bind:value={inputValue} class="input-field" on:focus={handleFocus} on:blur={handleBlur} pattern="{pattern}" maxlength="{maxlength}" placeholder="{placeholder}" min="{_min}" max="{_max}" required/>
         <label class="label" class:active={isFocused || inputValue}>{text}</label>
+    {:else if type === 'checkbox'}
+        <input type="checkbox" bind:checked={inputValue} class="float-right" on:click={onclickFunction}>
+        <label class="label float-left">{text}</label>
     {:else}
         <input type="text" bind:value={inputValue} class="input-field" on:focus={handleFocus} on:blur={handleBlur} placeholder={placeholder}/>
         <label class="label" class:active={isFocused || inputValue}>{text}</label>

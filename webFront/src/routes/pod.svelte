@@ -42,7 +42,7 @@
 <script>
     import { onMount } from "svelte";
     import Button from "./button.svelte";
-    import { server, JWTToken, github_username} from "../store.js"
+    import { server, JWTToken, github_username, checkJwtCookie} from "../store.js"
 
     export let app_name = ''
 
@@ -63,6 +63,9 @@
      * @param {{ [x: string]: any; }} param
      */
     async function servercomm(dir, okfunction=()=>{}, cancelfunction=()=>{}, errorfunction=()=>{}){
+        checkJwtCookie()
+
+        console.log($JWTToken, $server)
         try {
             const res = await fetch($server + dir, {
             method: 'GET',
@@ -72,6 +75,8 @@
             },
             })
             if (res.ok) {
+                console.log(res)
+                console.log(res.body)
                 const resultSave = await res.json();
                 // @ts-ignore
                 console.log(resultSave)

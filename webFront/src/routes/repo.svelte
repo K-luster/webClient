@@ -31,7 +31,7 @@
 
     .repo-detail-p{
         flex-grow: 1; 
-        font-size: 0.3rem;
+        font-size: 0.9rem;
         color: #a5a5a5
     }
 </style>
