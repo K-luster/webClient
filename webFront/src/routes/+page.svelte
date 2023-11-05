@@ -75,7 +75,7 @@
     <div id="rightsideWrapper">
         <div id="serviceiconWrapper" class="center">
             <div id="serviceicon" class="center">
-                <img src="/kuploy.png" alt="kuploy icon" class="fit">
+                <img src="./kuploy.png" alt="kuploy icon" class="fit">
             </div>
         </div>
         <div id="rightsidesign">

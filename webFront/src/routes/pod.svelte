@@ -108,14 +108,14 @@
 
                     <div id="pod-detail-cpu" class="center">
                         <div class="size-parent flex center">
-                            <img src="/cpu.png" alt="cpu icon" class="img-fit">
+                            <img src="./cpu.png" alt="cpu icon" class="img-fit">
                             <p style="flex-grow: 1; text-align: center;">{container.cpu}</p>
                         </div>
                     </div>
 
                     <div id="pod-detail-memory" class="center">
                         <div class="size-parent flex center">
-                            <img src="/memory.png" alt="cpu icon" class="img-fit">
+                            <img src="./memory.png" alt="cpu icon" class="img-fit">
                             <p style="flex-grow: 1; text-align: center;">{container.memory}</p>
                         </div>
                     </div>

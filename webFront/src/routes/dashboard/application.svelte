@@ -201,7 +201,7 @@
     </div>
     <div id="userboard-pod" class="{pod_visible ? 'visible' : 'hidden'}" in:slide >
         <div id="userboard-pod-back">
-            <Roundbutton src="/back.png" bind:binding={pod_visible} toggle_function={toggle_pod_visible}/>
+            <Roundbutton src="./back.png" bind:binding={pod_visible} toggle_function={toggle_pod_visible}/>
         </div>
         {#if pod_visible}
             <Pod app_name={appl_name_selected}/>

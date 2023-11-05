@@ -67,7 +67,7 @@
 
 <div id="userboard-repository" class="center-vertical">
     <!-- <div id="repository-button">
-        <Roundbutton src="/plus.png" toggle_function = {userboard} number = {0}/>
+        <Roundbutton src="./plus.png" toggle_function = {userboard} number = {0}/>
     </div> -->
 
     <div id="repository-content">

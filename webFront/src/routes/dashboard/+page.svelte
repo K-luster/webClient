@@ -87,11 +87,11 @@
 
 <div id="dashboard-content-wrapper">
     <div id="dashboard-sidebar" class="center-vertical center {sidebaropen ? 'sidebar-open' : 'sidebar-close'} ">
-        <Roundbutton src="/sidebar.png" bind:toggle = {sidebaropen} toggle_function = {sidebar_button_toggle}/>
-        <Roundbutton src="/application.png" toggle_function = {userboard} number = {0}/>
-        <Roundbutton src="/repository.png" toggle_function = {userboard} number = {1}/>
-        <Roundbutton src="/setting.png" toggle_function = {userboard} number = {2}/>
-        <Roundbutton src="/help.png" toggle_function = {userboard} number = {3}/>
+        <Roundbutton src="./sidebar.png" bind:toggle = {sidebaropen} toggle_function = {sidebar_button_toggle}/>
+        <Roundbutton src="./application.png" toggle_function = {userboard} number = {0}/>
+        <Roundbutton src="./repository.png" toggle_function = {userboard} number = {1}/>
+        <Roundbutton src="./setting.png" toggle_function = {userboard} number = {2}/>
+        <Roundbutton src="./help.png" toggle_function = {userboard} number = {3}/>
     </div>
     <div id="userboard-content-wrapper" class="center-vertical">
         <div id="userboard-header">

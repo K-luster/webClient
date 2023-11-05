@@ -44,7 +44,7 @@
 
     <div id="app-repo-url" class="center">
         <div class="size-parent flex center">
-            <img src="/github-logo.png" alt="cpu icon" class="img-fit">
+            <img src="./github-logo.png" alt="cpu icon" class="img-fit">
             <p style="flex-grow: 1; padding-left : 10px;">{application_repo}</p>
         </div>
     </div>
