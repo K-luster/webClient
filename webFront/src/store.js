@@ -8,7 +8,7 @@ export const localRepoPath = writable("/app")
 
 // export const server = writable("http://54.180.150.131/")
 // export const server = writable("http://kluster.iptime.org:9001/")
-export const server = writable("https://kuploy.ddns.net/server")
+export const server = writable("https://kuploy.ddns.net/server/")
 
 export function signintoggle(){
     signinbool.update(b => true)
