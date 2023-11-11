@@ -62,7 +62,7 @@
             document.cookie = `jwt=${$JWTToken}; path=/;`
             github_username.set(/** @type {string} */(resultUsername))
             // @ts-ignore
-            goto('/dashboard', true)
+            goto('./dashboard', true)
         }
     }
 
