@@ -23,8 +23,8 @@ jobs:
         docker build ./webFront --file webFront/Dockerfile --tag kuploy-web
         docker login docku.ddns.net -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
         docker tag kuploy-web kuploy/kuploy-web
-        docker push kuploy/kuploy-web
-
+        docker push docku.ddns.net/kuploy/kuploy-web
+        
         # IMAGE_NAME="kuploy/kuploy-web"
         # IMAGE_TAG="${{ github.sha }}"
         
