@@ -6,6 +6,9 @@
     import Signup from './signup/+page.svelte';
     import Button from './button.svelte';
 
+    var currentAddress = window.location.href;
+    console.log(currentAddress);
+
 </script>
 
 <style>
