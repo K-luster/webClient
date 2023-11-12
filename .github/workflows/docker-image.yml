@@ -20,8 +20,10 @@ jobs:
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         TAG : $(date +%s)
       run: |
+        docker build ./webFront --file webFront/Dockerfile --tag kuploy-web
         docker login docku.ddns.net -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-        docker build -t kuploy-web:$TAG ./webFront
+
+        docker tag kuploy-web docku.ddns.net/kuploy/kuploy-web:$TAG
         docker push docku.ddns.net/kuploy/kuploy-web:$TAG
         
         # IMAGE_NAME="kuploy/kuploy-web"
