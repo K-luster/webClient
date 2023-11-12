@@ -21,7 +21,7 @@ jobs:
         TAG : $(date +%s)
       run: |
         docker build ./webFront --file webFront/Dockerfile --tag kuploy-web
-        docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+        docker login docku.ddns.net -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
         docker tag kuploy-web kuploy/kuploy-web
         docker push kuploy/kuploy-web
 
