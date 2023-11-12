@@ -22,6 +22,7 @@ jobs:
       run: |
         docker build ./webFront --file webFront/Dockerfile --tag kuploy-web
         docker login docku.ddns.net -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+        docker tag kuploy-web:latest docku.ddns.net/kuploy/kuploy:latest
         docker push docku.ddns.net/kuploy/kuploy-web:latest
         
         # IMAGE_NAME="kuploy/kuploy-web"
