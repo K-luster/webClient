@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: kuploy-web
-          image: kuploy/kuploy-web
+          image: docku.ddns.net/kuploy/kuploy-web:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
