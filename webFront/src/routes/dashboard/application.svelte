@@ -82,6 +82,7 @@
     import { slide } from "svelte/transition";
     import Roundbutton from "../roundbutton.svelte";
     import Pod from "../pod.svelte";
+    import { goto } from "$app/navigation";
 
 
     // @ts-ignore
@@ -165,9 +166,11 @@
                 param[key] = resultSave
             } else {
                 console.error('서버에서 오류 응답을 받았습니다.');
+                goto('/')
             }
             } catch (error) {
                 console.error('네트워크 오류:', error);
+                goto('/')
         }
     }
     onMount(async () => {

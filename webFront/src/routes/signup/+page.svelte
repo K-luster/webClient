@@ -48,7 +48,7 @@ async function servercomm(dir, jsonBody, okfunction=()=>{}, cancelfunction=()=>{
 
     async function registerEmail(){
         isDisabledRegisterEmail = true
-        await servercomm("members/school-email-resend", {
+        await servercomm("members/school-email", {
                 email: email
             })
     }

@@ -43,6 +43,7 @@
     import { onMount } from "svelte";
     import Button from "./button.svelte";
     import { server, JWTToken, github_username, checkJwtCookie} from "../store.js"
+    import { goto } from "$app/navigation";
 
     export let app_name = ''
 
@@ -83,9 +84,11 @@
                 application = resultSave
             } else {
                 console.error('서버에서 오류 응답을 받았습니다.');
+                goto('/')
             }
             } catch (error) {
                 console.error('네트워크 오류:', error);
+                goto('/')
         }
     }
 
