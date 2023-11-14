@@ -4,7 +4,8 @@
     // @ts-ignore
     // @ts-ignore
     // @ts-ignore
-    import { checkJwtCookie, server, signintoggle } from '../../store';
+    import { checkJwtCookie, openDoc, server, signintoggle } from '../../store';
+    import Roundbutton from '../roundbutton.svelte';
 
     // @ts-ignore
     let password = ""
@@ -100,8 +101,25 @@ async function servercomm(dir, jsonBody, okfunction=()=>{}, cancelfunction=()=>{
     }
 
     .signupWrapper::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera*/
-}
+        display: none; /* Chrome, Safari, Opera*/
+    }
+
+    .right{
+        float: right;
+    }
+
+    .githubtokenwrapper{
+        position: relative;
+        display: flex;
+    }
+
+    .githubtokeninput{
+        flex: 3;
+    }
+
+    .githubtokendoc{
+        flex: 1;
+    }
 </style>
 <div class = "signupWrapper">
     <div>
@@ -109,7 +127,16 @@ async function servercomm(dir, jsonBody, okfunction=()=>{}, cancelfunction=()=>{
         <Input text="이메일 인증 번호" bind:email_auth_failed={email_auth_failed} bind:isDisabled = {isDisabledAuthEmail}
         bind:inputValue = {email_auth_code} type="email_auth" onclickFunction={authenticateEmail}/>
         <Input text="PASSWORD" bind:inputValue = {password} type="password" placeholder=" "/>
-        <Input text="Github Token" bind:inputValue = {githubToken} placeholder="Github Token"/>
+        <div class="center">
+            <div class="githubtokenwrapper center" style="width: 100%;">
+                <div class="githubtokeninput">
+                    <Input text="Github Token" bind:inputValue = {githubToken} placeholder="Github Token"/>
+                </div>
+                <div class="githubtokendoc">
+                    <Roundbutton toggle_function={openDoc} number="92a6c78d-5db7-4c1d-8dcf-eb6667e547c9" src="./question.png"/>
+                </div>
+            </div>
+        </div>
         <Input text="Docker Hub ID" bind:inputValue = {dockerhubid} placeholder="설정에서 바꿀 수 있습니다."/>
         <Input text="Docker Hub Password" bind:inputValue = {dockerhubpw} placeholder="설정에서 바꿀 수 있습니다."/>
     </div>

@@ -36,3 +36,15 @@ export function checkJwtCookie(){
         return false; // JWT 토큰이 쿠키에 없는 경우
     }
 }
+
+/**
+ * @param {string} [tokentagid]
+ */
+export function openDoc(tokentagid = "") {
+    const newTab = window.open('/documentation.html#' + tokentagid, '_blank');
+    if (newTab) {
+      newTab.onload = () => {
+        newTab.location.hash = tokentagid;
+      };
+    }
+  }
